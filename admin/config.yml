@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "config"
+    label: "Ajustes Web"
+    delete: false
+    files:
+      - name: "home"
+        label: "Inicio"
+        file: "data/home.json"
+        fields:
+          - {label: "Título", name: "title", widget: "string"}
+          - {label: "Descripción", name: "description", widget: "text"}
+          - {label: "Fondo (URL)", name: "bgImage", widget: "string"}
+
+  - name: "games"
+    label: "Juegos"
+    folder: "data/games"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - {label: "ID Único (Número)", name: "id", widget: "number"}
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Año", name: "year", widget: "string"}
+      - {label: "Desarrollador", name: "developer", widget: "string"}
+      - {label: "Portada (URL)", name: "cover", widget: "string"}
+      - {label: "Descripción", name: "description", widget: "text"}
+      - {label: "Requisitos", name: "systemRequirements", widget: "text"}
